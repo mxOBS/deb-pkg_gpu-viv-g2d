@@ -1,0 +1,34 @@
+Source: gpu-viv-g2d
+Priority: optional
+Maintainer: Josua Mayer <privacy@not.given>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Section: libs
+#Vcs-Git: git://anonscm.debian.org/collab-maint/gpu-viv-g2d.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/gpu-viv-g2d.git;a=summary
+
+Package: libg2d-demos
+Section: extra
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ libg2d0.8 (= ${binary:Version}),
+Description: Todo
+ T. O. D. O.
+
+Package: libg2d-dev
+Section: libdevel
+Architecture: any
+Depends: libg2d0.8 (= ${binary:Version}), ${misc:Depends}
+Description: Todo
+ T. O. D. O.
+
+Package: libg2d0.8
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ gpu-viv-bin,
+Description: Todo
+ T. O. D. O.

@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#DH_VERBOSE = 1
+
+DESTDIR=$(CURDIR)/debian/tmp
+
+# HACK for build-services that can't download
+SOURCESDIRS=/usr/src/packages/SOURCES/ ~/
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rfv gpu-viv-g2d-3.10.17-1.0.2{,.bin}
+
+override_dh_auto_configure:
+	find $(SOURCESDIRS) -maxdepth 1 -iname "gpu-viv-g2d-3.10.17-1.0.2.bin" -exec cp -v {} ./ \; -quit || true
+	./fetch.sh gpu-viv-g2d-3.10.17-1.0.2.bin 82d1418c06ca46e4e51deea2749c14d8
+	sh gpu-viv-g2d-3.10.17-1.0.2.bin --auto-accept
+
+override_dh_auto_install:
+	install -v -m644 -D gpu-viv-g2d-3.10.17-1.0.2/usr/lib/libg2d-viv.so $(DESTDIR)/usr/lib/libg2d.so.0.8
+	ln -sv libg2d.so.0.8 $(DESTDIR)/usr/lib/libg2d.so
+	install -v -m644 -D gpu-viv-g2d-3.10.17-1.0.2/usr/include/g2d.h $(DESTDIR)/usr/include/g2d.h
+	install -v -m755 -D gpu-viv-g2d-3.10.17-1.0.2/usr/bin/gmem_info $(DESTDIR)/usr/bin/gmem_info
+	mkdir -p $(DESTDIR)/opt/fsl-samples
+	cp -rv gpu-viv-g2d-3.10.17-1.0.2/opt/fsl-samples/g2d $(DESTDIR)/opt/fsl-samples/
