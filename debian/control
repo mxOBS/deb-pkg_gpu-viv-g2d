@@ -14,15 +14,15 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  libg2d1.1 (= ${binary:Version}),
-Description: Todo
- T. O. D. O.
+Description: Demos for libg2d
+ Provides sample applications to showcase libg2d.
 
 Package: libg2d-dev
 Section: libdevel
 Architecture: any
 Depends: libg2d1.1 (= ${binary:Version}), ${misc:Depends}
-Description: Todo
- T. O. D. O.
+Description: Development files for libg2d
+ Provides development libraries and headers for using libg2d.
 
 Package: libg2d1.1
 Architecture: armhf
@@ -32,5 +32,5 @@ Depends:
  imx-gpu-viv (>= 6.2.2.p0),
 Replaces:
  libg2d0.8,
-Description: Todo
- T. O. D. O.
+Description: G2D graphics library
+ Provides the G2d graphics library by Freescale/Vivante.
