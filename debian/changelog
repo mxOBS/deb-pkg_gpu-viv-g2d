@@ -1,3 +1,9 @@
+gpu-viv-g2d (6.2.2.p0) UNRELEASED; urgency=low
+
+  * Freescale update
+
+ -- Josua Mayer <josua.mayer97@gmail.com>  Tue, 17 Oct 2017 09:41:30 +0200
+
 gpu-viv-g2d (3.10.17~1.0.2) stable; urgency=low
 
   * Initial release

@@ -13,22 +13,24 @@ Architecture: any
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- libg2d0.8 (= ${binary:Version}),
+ libg2d1.1 (= ${binary:Version}),
 Description: Todo
  T. O. D. O.
 
 Package: libg2d-dev
 Section: libdevel
 Architecture: any
-Depends: libg2d0.8 (= ${binary:Version}), ${misc:Depends}
+Depends: libg2d1.1 (= ${binary:Version}), ${misc:Depends}
 Description: Todo
  T. O. D. O.
 
-Package: libg2d0.8
-Architecture: any
+Package: libg2d1.1
+Architecture: armhf
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- gpu-viv-bin,
+ imx-gpu-viv (>= 6.2.2.p0),
+Replaces:
+ libg2d0.8,
 Description: Todo
  T. O. D. O.
