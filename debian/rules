@@ -26,6 +26,7 @@ override_dh_auto_configure:
 override_dh_auto_install:
 	install -v -m644 -D $(NAME)/g2d/usr/lib/libg2d-viv.so $(DESTDIR)/usr/lib/libg2d.so.1.1
 	ln -sv libg2d.so.1.1 $(DESTDIR)/usr/lib/libg2d.so
+	ln -sv libg2d.so.1.1 $(DESTDIR)/usr/lib/libg2d-viv.so
 	install -v -m644 -D $(NAME)/g2d/usr/include/g2d.h $(DESTDIR)/usr/include/g2d.h
 	install -v -m644 -D $(NAME)/g2d/usr/include/g2dExt.h $(DESTDIR)/usr/include/g2dExt.h
 	mkdir -p $(DESTDIR)/opt

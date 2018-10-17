@@ -1,1 +1,2 @@
-/usr/lib/*.so.*
+/usr/lib/libg2d.so.1.1
+/usr/lib/libg2d-viv.so

@@ -1,4 +1,10 @@
-gpu-viv-g2d (6.2.2.p0) UNRELEASED; urgency=low
+gpu-viv-g2d (6.2.2.p0+1) stable; urgency=medium
+
+  * install libg2d-viv.so
+
+ -- Josua Mayer <josua.mayer97@gmail.com>  Wed, 17 Oct 2018 12:30:41 +0200
+
+gpu-viv-g2d (6.2.2.p0) unstable; urgency=low
 
   * Freescale update
 
