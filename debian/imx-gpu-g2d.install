@@ -1,0 +1,3 @@
+#! /usr/bin/dh-exec
+
+usr/lib/${DEB_HOST_MULTIARCH}/vivante/libg2d-viv.so

@@ -1,3 +1,5 @@
+#! /usr/bin/dh-exec
+
 usr/include/g2dExt.h
 usr/include/g2d.h
-usr/lib/libg2d.so
+usr/lib/${DEB_HOST_MULTIARCH}/libg2d.so

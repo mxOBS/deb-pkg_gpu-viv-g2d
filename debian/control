@@ -1,36 +1,48 @@
 Source: gpu-viv-g2d
 Priority: optional
 Maintainer: Josua Mayer <privacy@not.given>
-Build-Depends: debhelper (>= 9)
+Build-Depends:
+ debhelper (>= 9),
+ dh-exec,
 Standards-Version: 3.9.6
 Section: libs
 #Vcs-Git: git://anonscm.debian.org/collab-maint/gpu-viv-g2d.git
 #Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/gpu-viv-g2d.git;a=summary
 
 Package: libg2d-demos
+Section: oldlibs
+Priority: optional
+Architecture: any
+Description: transitional package
+ This is a transitional package. It can safely be removed.
+
+Package: libg2d-dev
+Section: libdevel
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ libg2d1.1,
+Description: Development files for libg2d
+ Provides development libraries and headers for using libg2d.
+
+Package: imx-gpu-g2d
+Architecture: armhf
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ imx-gpu-viv (>= 6.2.2.p0),
+Description: Vivante G2D graphics library
+ Provides the implementation of the G2D graphics library by Freescale/Vivante.
+
+Package: imx-gpu-g2d-demos
 Section: extra
 Architecture: any
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- libg2d1.1 (= ${binary:Version}),
+Replaces: libg2d-demos (<< 6.2.2.p0+2)
+Breaks: libg2d-demos (<< 6.2.2.p0+2)
 Description: Demos for libg2d
  Provides sample applications to showcase libg2d.
-
-Package: libg2d-dev
-Section: libdevel
-Architecture: any
-Depends: libg2d1.1 (= ${binary:Version}), ${misc:Depends}
-Description: Development files for libg2d
- Provides development libraries and headers for using libg2d.
-
-Package: libg2d1.1
-Architecture: armhf
-Depends:
- ${shlibs:Depends},
- ${misc:Depends},
- imx-gpu-viv (>= 6.2.2.p0),
-Replaces:
- libg2d0.8,
-Description: G2D graphics library
- Provides the G2d graphics library by Freescale/Vivante.
