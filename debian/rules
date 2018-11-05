@@ -18,11 +18,16 @@ MD5=64720dda9b96fd7af5be7e2c654ab72a
 override_dh_auto_clean:
 	rm -rf $(NAME)
 	rm -fv $(NAME).bin
+	rm -fv *.so*
 
 override_dh_auto_configure:
 	find $(SOURCESDIRS) -maxdepth 1 -iname "$(NAME).bin" -exec cp -v {} ./ \; -quit || true
 	./fetch.sh $(NAME).bin $(MD5)
 	./$(NAME).bin --auto-accept
+
+override_dh_auto_build:
+	# break up circular dependency on real libg2d.so.1.1
+	gcc -shared -Wl,-soname,libg2d.so.1.1 -o libg2d.so.1.1
 
 override_dh_auto_install:
 	install -v -m644 -D $(NAME)/g2d/usr/lib/libg2d-viv.so $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/vivante/libg2d-viv.so
@@ -31,3 +36,6 @@ override_dh_auto_install:
 	install -v -m644 -D $(NAME)/g2d/usr/include/g2dExt.h $(DESTDIR)/usr/include/g2dExt.h
 	mkdir -p $(DESTDIR)/opt
 	cp -rv $(NAME)/gpu-demos/opt/g2d_samples $(DESTDIR)/opt/
+
+override_dh_shlibdeps:
+	dh_shlibdeps -l$(CURDIR)
