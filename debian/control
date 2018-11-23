@@ -20,9 +20,8 @@ Package: libg2d-dev
 Section: libdevel
 Architecture: all
 Multi-Arch: foreign
-Depends:
- ${misc:Depends},
- libg2d1.1,
+Depends: ${misc:Depends}
+Suggests: libg2d1.1
 Description: Development files for libg2d
  Provides development libraries and headers for using libg2d.
 
