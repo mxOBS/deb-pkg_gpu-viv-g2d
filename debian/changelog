@@ -1,3 +1,9 @@
+gpu-viv-g2d (6.2.2.p0+3) stable; urgency=medium
+
+  * rename again :@
+
+ -- Josua Mayer <josua.mayer97@gmail.com>  Tue, 17 Sep 2019 16:20:22 +0200
+
 gpu-viv-g2d (6.2.2.p0+2) stable; urgency=medium
 
   * declare multiarch
