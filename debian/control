@@ -20,8 +20,9 @@ Package: libg2d-dev
 Section: libdevel
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}
-Suggests: libg2d1.1
+Depends:
+ ${misc:Depends},
+ libg2d1.1,
 Description: Development files for libg2d
  Provides development libraries and headers for using libg2d.
 
@@ -32,6 +33,8 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  imx-gpu-viv (>= 6.2.2.p0),
+Provides:
+ libg2d1.1,
 Description: Vivante G2D graphics library
  Provides the implementation of the G2D graphics library by Freescale/Vivante.
 
